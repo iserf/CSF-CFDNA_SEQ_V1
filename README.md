@@ -32,12 +32,12 @@ All applications within this pipeline are dockerized. Therefore, only little adj
 ## Pipeline Overview
 Briefly, the following steps and tools are applied within this pipeline:
 
-1. De-Multiplexing (bcl-convert)*
+1. De-Multiplexing (bcl-convert)**
 2. Read trimming (AGeNT Trimmer)
 3. Alignment to hg38 reference genome (bwa_mem2)
 4. Deduplication using duplex molecular barcodes (AGeNT CReAK, gatk bqsr)
-5. Fingerprint comparison of CSF cfDNA sample and matching germline control (gatk CrosscheckFingerprints)**
-6. SNV/ InDel Variant Calling (Mutect2, VarScan2, Strelka2, VarDict, Scalpel, LoFreq, MuSE** from lethalfang/somaticseq)
+5. Fingerprint comparison of CSF cfDNA sample and matching germline control (gatk CrosscheckFingerprints)***
+6. SNV/ InDel Variant Calling (Mutect2, VarScan2, Strelka2, VarDict, Scalpel, LoFreq, MuSE*** from lethalfang/somaticseq)
 7. SNV/ InDel Variant Calling (Octopus)
 8. Classification of called variants with a pre-trained classifier optimized for targeted sequencing of CSF cfDNA samples with the neurooncology gene panel (SomaticSeq) 
 9. Variant calling at specific positions (hotspot mutations, different to call regions) specified in /home_dir/reference/bed/special_positions.tsv (bcftools mpileup)
@@ -47,8 +47,8 @@ Briefly, the following steps and tools are applied within this pipeline:
 13. Sequencing QC (fastQC, multiQC)
 14. Sequencing statistics (gatk FlagStatSpark, gatk CollectHsMetrics)
 
-* Not run when running Analyze_Paired_Sample.sh or Analyze_Single_Sample.sh
-** Not included when running the pipeline in SINGLE mode (without matching germline control).
+** Not run when running Analyze_Paired_Sample.sh or Analyze_Single_Sample.sh
+*** Not included when running the pipeline in SINGLE mode (without matching germline control).
 
 ## Run the Scripts
 In the directory github_repo/CSF_CFDNA_SEQ you will find Scripts which combine all applications for an end to end workflow starting with raw bcl or de-multiplexed fastq files:
@@ -65,7 +65,7 @@ The recquired data structure/ arguments are described within the header of each 
 ## Pipeline Overview
 For analyzing MYD88:p.L265P mutational status, the following steps and tools are applied:
 
-1. De-Multiplexing (bcl-convert)*
+1. De-Multiplexing (bcl-convert)**
 2. Read trimming (AGeNT Trimmer)
 3. Alignment to hg38 reference genome (bwa_mem2)
 4. Deduplication using duplex molecular barcodes (AGeNT CReAK, gatk bqsr)
@@ -73,7 +73,7 @@ For analyzing MYD88:p.L265P mutational status, the following steps and tools are
 6. Sequencing QC (fastQC, multiQC)
 7. Sequencing statistics (gatk FlagStatSpark, gatk CollectHsMetrics, gatk CollectInsertSizeMetrics)
 
-* Not run when running Analyze_MYD88_Sample.sh
+** Not run when running Analyze_MYD88_Sample.sh
 
 ## Run the Scripts
 In the directory github_repo/CSF_CFDNA_SEQ/MYD88 you will find Scripts which combine all applications for an end to end workflow starting with raw bcl or de-multiplexed fastq files:
