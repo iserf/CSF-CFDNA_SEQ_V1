@@ -2,6 +2,7 @@
 SNV/InDel/CNV calling for CSF liquid biopsies.
 
 This pipeline was created to perform SNV, InDel and CNV calling from targeted sequencing data of cell-free DNA (cfDNA) isolated from cerebrospinal fluid (CSF). Libraries need to be prepared using the SureSelect XT HS2 DNA Reagent Kit (Agilent). The pipeline analyzes the target region of the neurooncology gene panel from the Institute of Neuropathology at Heidelberg Univeristy.
+
 Further, a workflow to analyzed the presence of MYD88:p.L265P mutation of CSF cfDNA samples from suspected primary central nervous system lymphoma (PCNSL) is included. Libraries have to be prepared from a PCR amplicon using the SureSelect XT HS2 DNA Reagent Kit. Importantly, no target enrichment has to be performed, since MYD88 is not part of the neurooncology gene panel.
 
 *Detailed wet lab protocols can be found in my MD thesis: XXX*
