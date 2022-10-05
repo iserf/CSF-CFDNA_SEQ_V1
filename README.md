@@ -48,6 +48,7 @@ Briefly, the following steps and tools are applied within this pipeline:
 14. Sequencing statistics (gatk FlagStatSpark, gatk CollectHsMetrics)
 
 ** Not run when running Analyze_Paired_Sample.sh or Analyze_Single_Sample.sh
+
 *** Not included when running the pipeline in SINGLE mode (without matching germline control).
 
 ## Run the Scripts
