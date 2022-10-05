@@ -1,31 +1,37 @@
-## CSF_CFDNA_SEQ
+# CSF_CFDNA_SEQ
 SNV/InDel/CNV calling for CSF liquid biopsies.
 
 This pipeline was created to perform SNV, InDel and CNV calling from targeted sequencing data of cell-free DNA (cfDNA) isolated from cerebrospinal fluid (CSF). Libraries need to be prepared using the SureSelect XT HS2 DNA Reagent Kit (Agilent). The pipeline analyzes the target region of the neurooncology gene panel from the Institute of Neuropathology at Heidelberg Univeristy.
 Further, a workflow to analyzed the presence of MYD88:p.L265P mutation of CSF cfDNA samples from suspected primary central nervous system lymphoma (PCNSL) is included. Libraries have to be prepared from a PCR amplicon using the SureSelect XT HS2 DNA Reagent Kit. Importantly, no target enrichment has to be performed, since MYD88 is not part of the neurooncology gene panel.
 
-Detailed wet lab protocols can be found in my MD thesis: XXX
+*Detailed wet lab protocols can be found in my MD thesis: XXX*
 
-## Getting started
+# Getting started
 
-# Download the repository
-Download the directory "github_repo" with all its sub-direcoties. This directory is your CSF_CFDNA_SEQ home directory (home_dir). 
-*IMPORTANT: The absolute file path ([absolute filepath]/github_repo) has to specified as the home_dir argument when running any script of this pipeline*
+## Download the repository
+Download the directory "github_repo" with all its sub-direcoties. This directory is your CSF_CFDNA_SEQ home directory (home_dir).
+
+**IMPORTANT: The absolute file path ([absolute filepath]/github_repo) has to specified as the home_dir argument when running any script of this pipeline**
+
 Scripts can be run from the sub-directory /github_repo/CSF_CFDNA_SEQ. Results are produced in the /github_repo/data/results section. Ressources and software needed by the respective scripts are stored within github_repo/reference or github_repo/software. Due to the large size of several GB, the following ressources have to be manually installed within github_repo/reference section:
+
 1. hg38 reference fasta within github_repo/reference/hg38/v0/
 2. gatk Funcotator data source within github_repo/reference/funcotator_dat_source_in_use
+
 Both ressources can be obtained from the gatk ressource bundle or be provided upon request. By default, both directories above contain a missing_ressources.txt file where the neccessary ressources are mentioned.
 
-# Prepare the environment
+## Prepare the environment
 All applications within this pipeline are dockerized. Therefore, only little adjustments of the users environment have to be taken.
+
 1. Install Docker on your machine
 2. Install GNU parallel (e.g. sudo apt-get install parallel)
 3. Create the docker images used in the pipeline by running the following script: /github_repo/CSF_CFDNA_SEQ/docker_images/prepare_environment.sh
 
-## SNV/InDel/CNV Calling Pipeline
+# SNV/InDel/CNV Calling Pipeline
 
-# Pipeline Overview
+## Pipeline Overview
 Briefly, the following steps and tools are applied within this pipeline:
+
 1. De-Multiplexing (bcl-convert)*
 2. Read trimming (AGeNT Trimmer)
 3. Alignment to hg38 reference genome (bwa_mem2)
@@ -44,8 +50,9 @@ Briefly, the following steps and tools are applied within this pipeline:
 * Not run when running Analyze_Paired_Sample.sh or Analyze_Single_Sample.sh
 ** Not included when running the pipeline in SINGLE mode (without matching germline control).
 
-# Run the Scripts
+## Run the Scripts
 In the directory github_repo/CSF_CFDNA_SEQ you will find Scripts which combine all applications for an end to end workflow starting with raw bcl or de-multiplexed fastq files:
+
 1. Analyse_Paired_library.sh: For analyzing a NGS library starting with raw bcl files. Library contains CSF cfDNA samples and matching germline control samples.
 2. Analyze_Single_library.sh: For analyzing a NGS library starting with raw bcl files. Library contains only CSF cfDNA samples.
 3. Analyze_Mixed_library.sh: For analyzing a NGS library starting with raw bcl files. Library contains CSF cfDNA samples with and without matching germline control samples.
@@ -54,9 +61,10 @@ In the directory github_repo/CSF_CFDNA_SEQ you will find Scripts which combine a
 
 The recquired data structure/ arguments are described within the header of each script.
 
-## MYD88:p.L265P Calling Pipeline
-# Pipeline Overview
+# MYD88:p.L265P Calling Pipeline
+## Pipeline Overview
 For analyzing MYD88:p.L265P mutational status, the following steps and tools are applied:
+
 1. De-Multiplexing (bcl-convert)*
 2. Read trimming (AGeNT Trimmer)
 3. Alignment to hg38 reference genome (bwa_mem2)
@@ -67,7 +75,8 @@ For analyzing MYD88:p.L265P mutational status, the following steps and tools are
 
 * Not run when running Analyze_MYD88_Sample.sh
 
-# Run the Scripts
+## Run the Scripts
 In the directory github_repo/CSF_CFDNA_SEQ/MYD88 you will find Scripts which combine all applications for an end to end workflow starting with raw bcl or de-multiplexed fastq files:
+
 1. Analyse_MYD88_library.sh: For analyzing a NGS library starting with raw bcl files. Library contains only CSF cfDNA samples.
 2. Analyze_MYD88_Sample.sh: For analyzing a CSF cfDNA sample without matching germline control. Starting from demultiplexed fastq files.
