@@ -1,7 +1,7 @@
 # CSF_CFDNA_SEQ
 SNV/InDel/CNV calling for CSF liquid biopsies.
 
-This pipeline was created to perform SNV, InDel and CNV calling from targeted sequencing data of cell-free DNA (cfDNA) isolated from cerebrospinal fluid (CSF). Libraries need to be prepared using the SureSelect XT HS2 DNA Reagent Kit (Agilent). The pipeline analyzes the target region of the neurooncology gene panel from the Institute of Neuropathology at Heidelberg Univeristy.
+This pipeline was created to perform SNV, InDel and CNV calling from targeted sequencing data of cell-free DNA (cfDNA) isolated from cerebrospinal fluid (CSF). Libraries need to be prepared using the SureSelect XT HS2 DNA Reagent Kit (Agilent). The original pipeline analyzes the target region of the neurooncology gene panel from the Institute of Neuropathology at Heidelberg Univeristy. Due to legal issues, no Panel bed-File & Picard interval_list ist provided within this repo.
 
 Further, a workflow to analyzed the presence of MYD88:p.L265P mutation of CSF cfDNA samples from suspected primary central nervous system lymphoma (PCNSL) is included. Libraries have to be prepared from a PCR amplicon using the SureSelect XT HS2 DNA Reagent Kit. Importantly, no target enrichment has to be performed, since MYD88 is not part of the neurooncology gene panel.
 
@@ -20,6 +20,8 @@ Scripts can be run from the sub-directory /github_repo/CSF_CFDNA_SEQ. Results ar
 2. gatk Funcotator data source within github_repo/reference/funcotator_dat_source_in_use
 
 Both ressources can be obtained from the gatk ressource bundle or be provided upon request. By default, both directories above contain a missing_ressources.txt file where the neccessary ressources are mentioned.
+
+In addition, a Panel bed-file and interval_list have to be provided within the reference/bed directory. To run cnvkit, Panel targets and antitargets have to be provided within reference/cnvkit directory. In both directories placeholder-files "ADD_PANEL_BED_HERE"* have been placed to indicate the correct location for the respective files.
 
 ## Prepare the environment
 All applications within this pipeline are dockerized. Therefore, only little adjustments of the users environment have to be taken.
