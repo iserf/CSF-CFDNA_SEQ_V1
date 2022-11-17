@@ -10,11 +10,11 @@ Further, a workflow to analyzed the presence of MYD88:p.L265P mutation of CSF cf
 # Getting started
 
 ## Download the repository
-Download the directory "github_repo" with all its sub-direcoties. This directory is your CSF_CFDNA_SEQ home directory (home_dir).
+Download the github repository with all its sub-direcoties. The main directory is your CSF_CFDNA_SEQ home directory (home_dir).
 
-**IMPORTANT: The absolute file path ([absolute filepath]/github_repo) has to specified as the home_dir argument when running any script of this pipeline**
+**IMPORTANT: The absolute file path ([absolute filepath]/CSF_CFDNA_SEQ) has to specified as the home_dir argument when running any script of this pipeline**
 
-Scripts can be run from the sub-directory /github_repo/CSF_CFDNA_SEQ. Results are produced in the /github_repo/data/results section. Ressources and software needed by the respective scripts are stored within github_repo/reference or github_repo/software. Due to the large size of several GB, the following ressources have to be manually installed within github_repo/reference section:
+Scripts can be run from the sub-directory /CSF_CFDNA_SEQ/CSF_CFDNA_SEQ. Results are produced in the /github_repo/data/results section. Ressources and software needed by the respective scripts are stored within github_repo/reference or github_repo/software. Due to the large size of several GB, the following ressources have to be manually installed within github_repo/reference section:
 
 1. hg38 reference fasta within github_repo/reference/hg38/v0/
 2. gatk Funcotator data source within github_repo/reference/funcotator_dat_source_in_use
